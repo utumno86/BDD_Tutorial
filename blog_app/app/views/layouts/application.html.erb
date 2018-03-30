@@ -12,7 +12,7 @@
     <header role="banner">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+          <a class="nav-link active"><%= link_to "Blog", root_path %></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -25,18 +25,21 @@
             </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link"><%=link_to 'Authors', "#" %></a>
         </li>
       </ul>
     </header>
-    <% flash.each do |key, message| %>
-      <div class="text-center alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
-        <%= message %>
+    <div class="container">
+      <div class="row">
+        <div class= "col-md-12">
+          <% flash.each do |key, message| %>
+            <div class="text-center alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
+              <%= message %>
+            </div>
+          <% end %>
+          <%= yield %>
+        </div>
       </div>
-    <% end %>
-    <%= yield %>
+    </div>
   </body>
 </html>
