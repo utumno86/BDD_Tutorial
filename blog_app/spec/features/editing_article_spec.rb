@@ -1,4 +1,4 @@
-equire "rails_helper"
+require "rails_helper"
 
 RSpec.feature "Editing Articles" do
   before do
@@ -8,7 +8,7 @@ RSpec.feature "Editing Articles" do
   scenario "A user updates an article" do
     visit "/"
 
-    click_link @article.title
+    click_link @article1.title
     click_link "Edit Article"
 
     fill_in "Title",	with: "Ex adipisicing eu do tempor tempor culpa laboris irure amet mollit culpa velit."
@@ -16,6 +16,20 @@ RSpec.feature "Editing Articles" do
     click_button "Update Article"
 
     expect(page).to have_content("Article has been updated")
-    expect(page.current_path).to eq(article_path(@article))
+    expect(page.current_path).to eq(article_path(@article1))
+  end
+
+  scenario "A user updates an article" do
+    visit "/"
+
+    click_link @article.title
+    click_link "Edit Article"
+
+    fill_in "Title", with: ""
+    fill_in "Body", with: "Excepteur voluptate tempor voluptate cillum occaecat commodo velit."
+    click_button "Update Article"
+
+    expect(page).to have_content("Article has not been updated")
+    expect(page.current_path).to eq(article_path(@article1))
   end
 end
