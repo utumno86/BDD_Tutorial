@@ -8,10 +8,7 @@ Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
 
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: no_comma
-
-Style/TrailingCommaInArrayLiteral:
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: no_comma
 
 Style/HashSyntax:
@@ -26,10 +23,10 @@ Layout/EmptyLines:
 Layout/IndentationConsistency:
   Enabled: true
 
-Layout/BlockAlignment:
+Lint/BlockAlignment:
   Enabled: true
 
-Layout/DefEndAlignment:
+Lint/DefEndAlignment:
   Enabled: true
 
 Layout/AlignArray:

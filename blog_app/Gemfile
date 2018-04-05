@@ -43,6 +43,7 @@ group :development, :test do
   gem 'guard-rspec', '~> 4.7.2'
   gem 'guard-cucumber', '~> 2.1.2'
   gem 'rubocop'
+  gem 'parser', '2.4.0.2'
   gem 'solargraph'
 end
 
