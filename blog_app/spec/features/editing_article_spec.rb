@@ -22,7 +22,7 @@ RSpec.feature "Editing Articles" do
   scenario "A user updates an article" do
     visit "/"
 
-    click_link @article.title
+    click_link @article1.title
     click_link "Edit Article"
 
     fill_in "Title", with: ""
