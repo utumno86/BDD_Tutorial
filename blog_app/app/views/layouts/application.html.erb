@@ -18,7 +18,10 @@
                 <a class="nav-link active"><%= link_to "Blog", root_path %></a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link"><%=link_to 'Words', "#" %></a>
+                <a class="nav-link"><%=link_to 'Sign up', new_user_registration_path %></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link"><%=link_to 'Sign out', destroy_user_session_path, method: :delete %></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link"><%=link_to 'Authors', "#" %></a>
