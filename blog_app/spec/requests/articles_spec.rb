@@ -4,7 +4,7 @@ RSpec.describe "Articles", type: :request do
 
   before do
     @john = User.create(email: "john@example.com", password: "password")
-    @fred = User.create(email: "john@example.com", password: "password")
+    @fred = User.create(email: "fred@example.com", password: "password")
     @article = Article.create!(title: "Nulla reprehenderit quis mollit nulla ullamco anim voluptate elit proident cillum amet ex duis ea.", body: "Veniam in laborum voluptate reprehenderit veniam in minim officia aliquip consectetur nulla ea ut.", user: @john)
   end
 
@@ -75,7 +75,7 @@ RSpec.describe "Articles", type: :request do
       end
 
       it "successfully deletes article" do
-        expect(response.status).to eq 200
+        expect(response.status).to eq 302
       end
     end
   end
