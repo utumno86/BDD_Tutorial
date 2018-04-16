@@ -14,7 +14,7 @@
 </article>
 <hr>
 <div class="col-md-12">
-  <%= form_for [@article, @comment],
+  <%= form_for [@article, @comment], remote:true,
   :html => {class: "form-horiziontal", role: "form"} do |f| %>
     <% if @comment.errors.any?  %>
       <div class='panel panel-danger col-md-offset-1'>
