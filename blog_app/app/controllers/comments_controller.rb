@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_article
-  
+
   def create
     if !current_user
       flash[:alert] = "Please sign in or sign up first"
@@ -10,14 +10,12 @@ class CommentsController < ApplicationController
       @comment.user = current_user
 
       if @comment.save
-        ActionCable.server.broadcast "comments",
-                                     render(partial: 'comments/comment', object: @comment)
         flash[:notice] = "Comment has been created"
+        ActionCable.server.broadcast "comments", render(partial: 'comments/comment', object: @comment)
       else
-        flash.now[:alert] = "Comment has not been created"
+        flash[:alert] = "Comment has not been created"
+        redirect_to article_path(@article)
       end
-
-      redirect_to article_path(@article)
     end
   end
 

@@ -14,7 +14,7 @@
 </article>
 <hr>
 <div class="col-md-12">
-  <%= form_for [@article, @comment], remote:true,
+  <%= form_for [@article, @comment], remote: true,
   :html => {class: "form-horiziontal", role: "form"} do |f| %>
     <% if @comment.errors.any?  %>
       <div class='panel panel-danger col-md-offset-1'>
@@ -31,7 +31,7 @@
             </ul>
         </div>
       </div>
-    <% end %>   
+    <% end %>
     <div class='form-group'>
       <div class='control-label col-md-2'>
         <%= f.label :body, 'New Comment' %>
@@ -55,15 +55,17 @@
 
   <div class="col-md-10">
     <% if @article.comments.any? %>
-      <% persisted_comments(@comments).each do |comment| %>
-        <div class="comment-body">
-          <%= comment.body %>
-        </div>
-        <div class= "comment-time">
-          <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.email %>
-        </div>
-        <hr>
-      <% end %>
+      <div id="messages">
+        <% persisted_comments(@comments).each do |comment| %>
+          <div class="comment-body">
+            <%= comment.body %>
+          </div>
+          <div class= "comment-time">
+            <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.email %>
+          </div>
+          <hr>
+        <% end %>
+      </div>
     <% else %>
       There are no comments to show
     <% end %>
